@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import sqlite3
 
 app = Flask(__name__)
 
@@ -13,7 +14,16 @@ def index():
 
 @app.route('/movie')
 def top250():
-    return render_template("index2.html")
+    datalist = []
+    conn = sqlite3.connect("movie.db")
+    cur = conn.cursor()
+    sql = "select * from top250movie"
+    data = cur.execute(sql)
+    for item in data:
+        datalist.append(item)
+    cur.close()
+    conn.close()
+    return render_template("index2.html", movies=datalist)
 
 if __name__ == '__main__':
     app.run()
