@@ -27,7 +27,19 @@ def top250():
 
 @app.route('/rating')
 def rating():
-    return render_template("index3.html")
+    score = []
+    count = []
+    conn = sqlite3.connect("movie.db")
+    cur = conn.cursor()
+    sql = "select score,count(rating) from top250movie group by score"
+    data = cur.execute(sql)
+    for item in data:
+        score.append(item[0])
+        count.append(item[1])
+    cur.close()
+    conn.close()
+
+    return render_template("index3.html", score=score, count=count)
 
 if __name__ == '__main__':
     app.run()

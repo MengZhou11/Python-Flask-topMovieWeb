@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+     <!-- including ECharts file -->
+    <script src="static/assets/js/echart.js"></script>
+
   <title>Douban Top 250 Movies</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -51,7 +54,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/movie">Top Movies</a></li>
-          <li><a href="/rating">Rating</a></li>
+          <li><a href="/rating">Rating Statistic</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -63,14 +66,55 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
+        <!-- prepare a DOM container with width and height -->
+    <div id="main" style="width:900px;height:600px;"></div>
+        <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById('main'));
 
-      </div>
+        // specify chart configuration item and data
+    option = {
+        title: {
+            text:'Douban Top 250 Movie Rating Statistic',
+        },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        data: {{ score }},
+    },
+    yAxis: {
+        type: 'value',
+    },
+    series: [{
+        type: 'bar',
+        name: 'Number of Movie',
+        barWidth: '60%',
+        data: {{ count }},
+    }]
+    };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+    </script>
     </div>
 
   </section><!-- End Hero -->
 
   </main><!-- End #main -->
-</br></br></br></br>
+
+
+  </br></br></br></br></br></br>
 <footer><!--  Footer -->
     <div class="footer">
       <div class="copyright">
