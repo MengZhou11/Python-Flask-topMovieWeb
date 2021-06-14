@@ -35,7 +35,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<br>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
@@ -49,11 +49,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Top Movies</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/movie">Top Movies</a></li>
+          <li><a href="/rating">Rating</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -67,7 +66,7 @@
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Using Python spider data from Douban</h1>
-          <h2>This project involves Python crawler, Flask frame, Echarts and WordCloud, enjoy! </h2>
+          <h2>This project involves Python crawler, Flask frame, Echarts and WordCloud </h2>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
           <img src="static/assets/img/hero-img.png" class="img-fluid animated" alt="">
@@ -77,43 +76,8 @@
 
   </section><!-- End Hero -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-             <div class="section-title">
-        </br>
-          <p>Douban Top 250 Movies</p>
-        </div>
-      <div class="container" >
-
-          <table class="table table-striped">
-              <tr>
-                  <td>Ranking</td>
-                  <td>Film Name</td>
-                  <td>Film Name EN</td>
-                  <td>Rating</td>
-                  <td>Number of Rating</td>
-                  <td>Introduction</td>
-                  <td>More Info</td>
-              </tr>
-              {%  for m in movies %}
-              <tr>
-                  <td>{{ m[0] }}</td>
-                  <td><a href="{{ m[1] }}" target ="_blank">
-                      {{ m[3] }}</a></td>
-                  <td>{{ m[4] }}</td>
-                  <td>{{ m[5] }}</td>
-                  <td>{{ m[6] }}</td>
-                  <td>{{ m[7] }}</td>
-                  <td>{{ m[8] }}</td>
-              </tr>
-              {% endfor %}
-          </table>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
   </main><!-- End #main -->
-
+</br></br></br></br>
 <footer><!--  Footer -->
     <div class="footer">
       <div class="copyright">

@@ -25,5 +25,9 @@ def top250():
     conn.close()
     return render_template("index2.html", movies=datalist)
 
+@app.route('/rating')
+def rating():
+    return render_template("index3.html")
+
 if __name__ == '__main__':
     app.run()
