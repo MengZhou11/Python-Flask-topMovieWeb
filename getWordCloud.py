@@ -20,16 +20,16 @@ for item in data:
 #结巴分词
 cut = jieba.cut(text)
 string = ' '.join(cut)
-print(string)
+
 cur.close()
 con.close()
 
-img = Image.open(r'/static/assets/img/hero-img.png')
+img = Image.open(r'./static/assets/img/tree.jpg')
 img_array = np.array(img) #将图片转换成数组
 wc = WordCloud(
     background_color='white',
     mask = img_array,
-    font_path='MAIAN.ttf'
+    font_path="PingFang",
 ).generate_from_text(string)
 
 #准备绘制图片
@@ -37,4 +37,5 @@ fig = plt.figure(1)
 plt.imshow(wc)
 plt.axis('off')
 
-plt.show()
+#plt.show()
+plt.savefig(r'./static/assets/img/word.jpg', dpi=1000)
