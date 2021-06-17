@@ -41,5 +41,10 @@ def rating():
 
     return render_template("index3.html", score=score, count=count)
 
+
+@app.route('/WordCloud')
+def WordCloud():
+    return render_template("index4.html")
+
 if __name__ == '__main__':
     app.run()
